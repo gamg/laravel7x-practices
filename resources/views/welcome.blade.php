@@ -80,9 +80,21 @@
             @endif
 
             <div class="content">
+
+                <x-messages.alert type="warning" :text="$mytext" class="miclase" data-id="777">
+                    <h1>Este es mi slot principal</h1>
+                    <x-slot name="otherslot">
+                        <h2>Este es mi segundo slot.</h2>
+                    </x-slot>
+                </x-messages.alert>
+
                 <div class="title m-b-md">
                     Laravel
                 </div>
+
+                <x-notifications/>
+
+                <x-anonimo type="error" :message="$mytext" class="otra-clase"/>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
