@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/get-moto', function () {
+    $moto = \App\Motorcycle::first();
+    return $moto->code;
+});
+
+Route::get('/set-moto', function () {
+    $moto = \App\Motorcycle::first();
+    $moto->update(['code' => 'EFMOFSAH7487-Laravel']);
+});
