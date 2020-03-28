@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+use Illuminate\Support\Facades\Http;
+
+Route::get('/testing-http', function () {
+    /*$response = Http::get('https://randomuser.me/api/?results=1');
+    dd($response->json());*/
+
+    $response = Http::post('https://jsonplaceholder.typicode.com/posts', [
+        'title' => 'Mi titulo...',
+        'code' => 78
+    ]);
+
+    $response->throw();
+
+    dd($response->json());
+});
